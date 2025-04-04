@@ -16,7 +16,7 @@ export class Triangle implements Figure {
     const sorted: number[] = [a, b, c].sort((x: number, y: number) => y - x);
 
     if (a <= 0 || b <= 0 || c <= 0 || sorted[0] >= sorted[1] + sorted[2]) {
-      throw new Error('Incorrect data');
+      throw new Error('The sides do not satisfy the triangle inequality');
     }
   }
 
@@ -45,7 +45,7 @@ export class Circle implements Figure {
   getArea(): number {
     const square: number = this.radius * this.radius * Math.PI;
 
-    return Math.floor(square * 100) / 100;
+    return +square.toFixed(2);
   }
 }
 
